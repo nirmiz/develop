@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: 955865924758.dkr.ecr.eu-central-1.amazonaws.com/pythontestapp:75e780261785523295938568d658ec4c40f18980
+        image: 955865924758.dkr.ecr.eu-central-1.amazonaws.com/pythontestapp:909b9340cc8e5f2e3b10e3c4e48d0126267c1a50
         ports:
         - containerPort: 8080
 
