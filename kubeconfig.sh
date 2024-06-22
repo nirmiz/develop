@@ -1,7 +1,7 @@
 #!/bin/bash
-AWS_REGION=$1
-EKS_CLUSTER_NAME=$2
-AWS_PROFILE=$3
+AWS_REGION=eu-central-1
+EKS_CLUSTER_NAME=ekscluster
+AWS_PROFILE=nir.mizrahi
 # The path where kubeconfig file would be stored. You can modify this to your preference 
 export KUBECONFIG_PATH="~/.kube/config"
 

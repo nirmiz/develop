@@ -142,5 +142,5 @@ variable "region" {
 }
 
 variable "AWS_PROFILE" {
-  default = "nir_mizrahi"
+  default = "nir.mizrahi"
 }
