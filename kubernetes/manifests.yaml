@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: bluered
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-color
+  namespace: bluered
+data:
+  X: '1'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: bluered
+  name: bluered
+  namespace: bluered
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bluered
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: bluered
+    spec:
+      containers:
+      - image: nirmiz/bluered:latest
+        name: bluered
+        resources: {}
+        envFrom:
+          - configMapRef:
+              name: config-color
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bluered
+  namespace: bluered
+spec:
+  selector:
+    app: bluered
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: LoadBalancer

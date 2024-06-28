@@ -65,23 +65,23 @@ resource "aws_eks_node_group" "node-ec2" {
   ]
 }
 
-resource "aws_iam_openid_connect_provider" "default" {
-  url             = "https://${local.oidc}"
-  client_id_list  = ["sts.amazonaws.com"]
-  thumbprint_list = ["9e99a48a9960b14926bb7f3b02e22da2b0ab7280"]
-}
+# resource "aws_iam_openid_connect_provider" "default" {
+#   url             = "https://${local.oidc}"
+#   client_id_list  = ["sts.amazonaws.com"]
+#   thumbprint_list = ["9e99a48a9960b14926bb7f3b02e22da2b0ab7280"]
+# }
 
 
-module "eks-argocd" {
-  source  = "lablabs/eks-argocd/aws"
-  version = "0.1.3"
-  enabled = true
-  argo_enabled = true
-  argo_helm_enabled = true
-  cluster_identity_oidc_issuer = aws_iam_openid_connect_provider.default.id
-  cluster_identity_oidc_issuer_arn = aws_iam_openid_connect_provider.default.arn
-  depends_on = [ aws_eks_cluster.eks-cluster ]
-}
+# module "eks-argocd" {
+#   source  = "lablabs/eks-argocd/aws"
+#   version = "0.1.3"
+#   enabled = true
+#   argo_enabled = true
+#   argo_helm_enabled = true
+#   cluster_identity_oidc_issuer = aws_iam_openid_connect_provider.default.id
+#   cluster_identity_oidc_issuer_arn = aws_iam_openid_connect_provider.default.arn
+#   depends_on = [ aws_eks_cluster.eks-cluster ]
+# }
 
 resource "aws_ecr_repository" "testapp" {
   name = "pythontestapp"
