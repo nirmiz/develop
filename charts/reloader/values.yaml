@@ -1,0 +1,4 @@
+reloader:
+  image:
+    repository: stakater/reloader
+    tag: v0.0.97
