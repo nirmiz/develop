@@ -83,4 +83,23 @@ server:
     type: LoadBalancer
 EOF
   ]
+  depends_on = [
+    aws_eks_cluster.eks-cluster
+  ]
+}
+
+resource "kubectl_manifest" "bluered_application" {
+  yaml_body = file("${path.module}/../meta/bluered.yaml")
+
+  depends_on = [
+    helm_release.argocd
+  ]
+}
+
+resource "kubectl_manifest" "reloader_application" {
+  yaml_body = file("${path.module}/../meta/reloader.yaml")
+
+  depends_on = [
+    helm_release.argocd
+  ]
 }
