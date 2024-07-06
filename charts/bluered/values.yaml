@@ -1,0 +1,6 @@
+namespace: bluered
+appName: bluered
+replicas: 1
+image: nirmiz/bluered:latest
+app:
+  color: '1'   ### 1 for Blue, 0 for Red.
