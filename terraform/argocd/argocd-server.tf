@@ -14,7 +14,4 @@ server:
     type: LoadBalancer
 EOF
   ]
-  depends_on = [
-    aws_eks_cluster.eks-cluster
-  ]
 }
