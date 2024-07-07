@@ -1,3 +1,19 @@
+variable "ecr_name" {
+  default = "testapp"
+}
+
+variable "region" {
+  default = "eu-central-1"
+}
+
+variable "AWS_PROFILE" {
+  default = "nir.mizrahi"
+}
+
+variable "gh_user_name" {
+  default = "github-actions-user"
+}
+
 variable "networking" {
   type = object({
     cidr_block      = string
@@ -133,17 +149,4 @@ variable "node_groups" {
       }
     },
   ]
-
-}
-
-variable "ecr_name" {
-  default = "testapp"
-}
-
-variable "region" {
-  default = "eu-central-1"
-}
-
-variable "AWS_PROFILE" {
-  default = "nir.mizrahi"
 }
