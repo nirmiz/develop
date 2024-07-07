@@ -136,6 +136,9 @@ variable "node_groups" {
 
 }
 
+variable "ecr_name" {
+  default = "testapp"
+}
 
 variable "region" {
   default = "eu-central-1"

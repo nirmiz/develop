@@ -1,4 +1,4 @@
-### Apply after cluster creation.
+### Apply after all-in-one creation.
 resource "kubernetes_manifest" "bluered_application" {
   manifest = yamldecode(file("${path.module}../../meta/bluered.yaml"))
 }
