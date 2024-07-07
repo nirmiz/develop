@@ -96,8 +96,8 @@ variable "cluster_config" {
     version = string
   })
   default = {
-    name    = "eks-cluster"
-    version = "1.29"
+    name    = "ekscluster"
+    version = "1.27"
   }
 }
 

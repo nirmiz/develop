@@ -80,7 +80,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEKS_CNI_Policy" {
 
 
 
-resource "aws_eks_cluster" "eks-cluster" {
+resource "aws_eks_cluster" "ekscluster" {
   name     = var.cluster_config.name
   role_arn = aws_iam_role.EKSClusterRole.arn
   version  = var.cluster_config.version
@@ -98,7 +98,7 @@ resource "aws_eks_cluster" "eks-cluster" {
 
 resource "aws_eks_node_group" "node-ec2" {
   for_each        = { for node_group in var.node_groups : node_group.name => node_group }
-  cluster_name    = aws_eks_cluster.eks-cluster.name
+  cluster_name    = aws_eks_cluster.ekscluster.name
   node_group_name = each.value.name
   node_role_arn   = aws_iam_role.NodeGroupRole.arn
   subnet_ids      = flatten(module.aws_vpc.private_subnets)
