@@ -20,7 +20,6 @@ module "aws_vpc" {
   }
 }
 
-
 # EKS cluster role which we will attach a policy to
 resource "aws_iam_role" "EKSClusterRole" {
   name = "EKSClusterRole"

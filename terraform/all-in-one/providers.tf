@@ -9,7 +9,7 @@ terraform {
     bucket  = "tf-state-mizrahi"
     key     = "terraform.tfstate"
     region  = "eu-central-1"
-    profile = "nir.mizrahi"
+    profile = "nirmizrahi"
   }
 }
 
@@ -24,7 +24,6 @@ provider "kubernetes" {
 }
 
 provider "aws" {
-  region  = var.region
-  profile = var.AWS_PROFILE
+  region  = "eu-central-1"
+  profile = "nirmizrahi"
 }
-

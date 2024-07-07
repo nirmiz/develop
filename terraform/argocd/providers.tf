@@ -2,14 +2,14 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.55.0"
+      version = "5.57.0"
     }
   }
   backend "s3" {
     bucket  = "tf-state-mizrahi"
-    key     = "terraform.tfstate"
+    key     = "argocd/terraform.tfstate"
     region  = "eu-central-1"
-    profile = "nir.mizrahi"
+    profile = "nirmizrahi"
   }
 }
 
@@ -24,7 +24,7 @@ provider "kubernetes" {
 }
 
 provider "aws" {
-  region  = var.region
-  profile = var.AWS_PROFILE
+  region  = "eu-central-1"
+  profile = "nirmizrahi"
 }
 
